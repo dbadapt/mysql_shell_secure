@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # call mysql client from shell script without 
 # passing credentials on command line

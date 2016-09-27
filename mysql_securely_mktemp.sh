@@ -1,10 +1,10 @@
-#!/bin/bash
+#!/bin/sh
 
 # call mysql client from shell script without 
 # passing credentials on command line
 #
 # this version demonstrates queries read from
-# stanard input such as mysqldump output.
+# standard input such as mysqldump output.
 # It uses a temporary file with restrictive
 # permissions to read config information.
 
