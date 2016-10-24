@@ -20,6 +20,7 @@ mysql_exec_from_file() {
   local query_file="$1"
   local opts="$2"
   local tmpcnf="$(mktemp)"
+  trap "EC=\$?; rm -f ${tmpcnf}; exit \$EC" EXIT INT TERM
   chmod 600 "${tmpcnf}"
   printf "%s\n" \
     "[client]" \
@@ -32,7 +33,6 @@ mysql_exec_from_file() {
   mysql_exec_from_file_result=$(
       mysql --defaults-file="${tmpcnf}" "$opts" < "${query_file}"
   )
-  rm "${tmpcnf}"
 }
 
 query_file="$(mktemp)"
