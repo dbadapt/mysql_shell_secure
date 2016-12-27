@@ -8,7 +8,7 @@
 # It uses a temporary file with restrictive
 # permissions to read config information.
 
-# david . bennett @ percona . com - 9/24/2016
+# david . bennett @ percona . com - 12/27/2016
 
 mysql_user=root
 mysql_password=password
@@ -30,7 +30,7 @@ mysql_exec_from_file() {
     "database=${mysql_database}" \
     > "${tmpcnf}" 
   mysql_exec_from_file_result=$(
-      mysql --defaults-file="${tmpcnf}" "$opts" < "${query_file}"
+      HOME="/sys" mysql --defaults-file="${tmpcnf}" "$opts" < "${query_file}"
   )
   rm "${tmpcnf}"
 }

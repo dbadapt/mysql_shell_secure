@@ -7,7 +7,7 @@
 # the -e parameter.   Credentials and connection
 # info are sent through standard input.
 
-# david . bennett @ percona . com - 9/24/2016
+# david . bennett @ percona . com - 12/27/2016
 
 mysql_user=root
 mysql_password=password
@@ -26,7 +26,7 @@ mysql_exec() {
       "host=${mysql_host}" \
       "port=${mysql_port}" \
       "database=${mysql_database}" \
-      | mysql --defaults-file=/dev/stdin "${opts}" -e "${query}"
+      | HOME="/sys" mysql --defaults-file=/dev/stdin "${opts}" -e "${query}"
   )
 }
 
